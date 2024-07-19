@@ -1,0 +1,5 @@
+.options {
+  display: flex;
+  flex-direction: row;
+  gap: 20px; /* Increase the space between options */
+}

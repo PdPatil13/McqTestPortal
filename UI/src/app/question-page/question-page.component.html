@@ -1,0 +1,39 @@
+<div class="container mt-5" *ngIf="questions.length > 0">
+  <h2>Multiple Choice Questions</h2>
+  <div *ngFor="let question of questions; let i = index">
+    <div class="card" style="width: 50rem;">
+      <div class="card-body">
+        <h2 class="card-title">{{ i + 1 }}. {{ question.QuestionText }}</h2>
+        <div class="options" >
+          <label class="btn btn-outline-primary">
+            <input type="radio" name="answer{{question.QuestionID}}"
+              (click)="selectAnswer(question.QuestionID, question.Answer1)">
+            {{ question.Answer1 }}
+          </label>
+
+          <label class="btn btn-outline-primary">
+            <input type="radio" name="answer{{question.QuestionID}}"
+              (click)="selectAnswer(question.QuestionID, question.Answer2)">
+            {{ question.Answer2 }}
+          </label>
+
+          <label class="btn btn-outline-primary">
+            <input type="radio" name="answer{{question.QuestionID}}"
+              (click)="selectAnswer(question.QuestionID, question.Answer3)">
+            {{ question.Answer3 }}
+          </label>
+
+          <label class="btn btn-outline-primary">
+            <input type="radio" name="answer{{question.QuestionID}}"
+              (click)="selectAnswer(question.QuestionID, question.Answer4)">
+            {{ question.Answer4 }}
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container mt-2">
+    <button type="button" class="btn btn-primary" [disabled]="!allQuestionsAnswered()" (click)="submitAnswers()">Submit Answers</button>
+  </div>
+</div>

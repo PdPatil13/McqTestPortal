@@ -1,0 +1,26 @@
+<div class="container mt-5">
+    <h1>Exam Result is : {{ correctCount }} out of {{ questions.length }}</h1>
+    <p>You answered {{ correctCount }} out of {{ questions.length }} questions correctly.</p>
+    <p>Email: {{ email }}</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Question</th>
+          <th>Your Answer</th>
+          <th>Correct Answer</th>
+          <th>Result</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let result of results let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ result.question }}</td>
+          <td>{{ result.selectedAnswer }}</td>
+          <td>{{ result.correctAnswer }}</td>
+          <td>{{ result.isCorrect ? 'Correct' : 'Incorrect' }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
